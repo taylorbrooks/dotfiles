@@ -3,7 +3,12 @@ alias gco="git checkout"
 alias gpl="git pull --rebase"
 alias gps="git push"
 alias gcm="git commit -a -m"
-alias gst="git statuss"
+alias gst="git status"
+
+# TMUX SHORTCUTS
+alias tml='tmux ls'
+alias tmn='tmux new -s'
+alias tma='tmux attach -t'
 
 alias subl="sublime"
 alias ppr="powder restart && powder open"
@@ -21,7 +26,6 @@ alias be="bundle exec"
 alias pca="RAILS_ENV=production be rake assets:precompile"
 alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
 alias start_es="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.17.5/config/elasticsearch.yml"
-
 
 # ENV_VARIABLES
 export GEM_EDITOR="sublime"
