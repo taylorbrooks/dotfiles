@@ -1,0 +1,66 @@
+# GIT
+alias gco="git checkout"
+alias gpl="git pull --rebase"
+alias gps="git push"
+alias gcm="git commit -a -m"
+alias gst="git status"
+alias gap='git add -p'
+alias gnap='git add -N . && git add -p'
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gca='git commit -a -v'
+alias gd='git diff --color-words'
+alias gdc='git diff --cached'
+alias gdh='git diff HEAD'
+alias gl='git pull'
+alias glod='git log --graph --pretty="%Cgreen%h%Creset%Cblue%d%Creset %Cred%an%Creset: %s"'
+alias gp='git push'
+alias gpr='git pull --rebase'
+alias gst='git status'
+alias gr='git rebase'
+alias grc='git rebase --continue'
+alias gri='git rebase --interactive'
+alias gra='git rebase --abort'
+alias gcp='git cherry-pick'
+
+# TMUX
+alias tml='tmux ls'
+alias tmn='tmux new -s'
+alias tma='tmux attach -t'
+alias mux='tmuxinator'
+
+# DIR
+alias dot="cd ~/Documents/source/dotfiles"
+alias src="cd ~/Documents/source"
+alias sd="cd ~/Documents/source/simpledonation"
+alias sp="cd ~/Documents/source/prospex"
+alias dr="cd ~/Documents/source/drip-emails"
+alias dre="cd ~/Documents/source/drip_emails"
+alias todo="vim ~/Documents/Sync/notes/todo.md"
+alias notes="cd ~/Documents/Sync/notes"
+alias blog="cd ~/Documents/source/taylorbrooksorg"
+
+# HEROKU
+alias hc="heroku run console"
+alias hl="heroku logs -t"
+
+# MAKE IT SO
+alias mis="gps origin master && gps heroku master"
+
+# MISC SHORTCUTS
+alias be="bundle exec"
+alias pca="RAILS_ENV=production be rake assets:precompile"
+alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
+
+# SHELL
+alias ll="ls -l"
+alias la="ls -a"
+alias lll="la -l"
+alias md='mkdir -p'
+alias rd='rmdir'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias psg='ps aux | grep'
+alias h='history'
+alias e='vim'
