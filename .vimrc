@@ -76,15 +76,14 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
 map <Leader><space> :nohl<cr>
+map <Leader>vv :vsp<cr><C-p>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>j :%!cat % <bar> jq '.'<CR>
 nnoremap <Leader>a :Ack!
 nnoremap <Leader><bs> :Ack! '\b<c-r><c-w>\b'<cr>
-
-" split windows
 nnoremap <C-w>- :spl<cr>
 nnoremap <C-w><bar> :vsp<cr>
 
