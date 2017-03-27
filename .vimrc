@@ -1,39 +1,35 @@
-" ========================================================================
-" Vundle stuff
-" ========================================================================
-set nocompatible " Required by vundle
-filetype off     " Required by vundle
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'ervandew/supertab'
+Plug 'mileszs/ack.vim'
+Plug 'skwp/greplace.vim'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neomake/neomake'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+if has('nvim')
+  Plug 'slashmili/alchemist.vim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+  let g:SuperTabDefaultCompletionType = '<c-n>'
+endif
 
-Plugin 'ervandew/supertab'
-Plugin 'mileszs/ack.vim'
-Plugin 'skwp/greplace.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+autocmd! BufWritePost * Neomake
+autocmd! BufReadPost * Neomake
 
 syntax on
 colorscheme Tomorrow-Night-Eighties
@@ -78,6 +74,11 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <Leader><space> :nohl<cr>
 map <Leader>vv :vsp<cr><C-p>
+map <Leader>nn :vs ~/Documents/Sync/notes<cr>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
@@ -86,6 +87,15 @@ nnoremap <Leader>a :Ack!
 nnoremap <Leader><bs> :Ack! '\b<c-r><c-w>\b'<cr>
 nnoremap <C-w>- :spl<cr>
 nnoremap <C-w><bar> :vsp<cr>
+
+inoremap  <Up>    <NOP>
+inoremap  <Down>  <NOP>
+inoremap  <Left>  <NOP>
+inoremap  <Right> <NOP>
+noremap   <Up>    <NOP>
+noremap   <Down>  <NOP>
+noremap   <Left>  <NOP>
+noremap   <Right> <NOP>
 
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_match_window_bottom = 0
