@@ -1,3 +1,4 @@
+
 call plug#begin()
 
 Plug 'ervandew/supertab'
@@ -9,8 +10,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -18,13 +17,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neomake/neomake'
-
-if has('nvim')
-  Plug 'slashmili/alchemist.vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-  let g:SuperTabDefaultCompletionType = '<c-n>'
-endif
+Plug 'slashmili/alchemist.vim'
 
 call plug#end()
 
@@ -76,15 +69,14 @@ map <Leader><space> :nohl<cr>
 map <Leader>vv :vsp<cr><C-p>
 map <Leader>nn :vs ~/Documents/Sync/notes<cr>
 map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>s :call RunAllSpecs()<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>j :%!cat % <bar> jq '.'<CR>
 nnoremap <Leader>a :Ack!
-nnoremap <Leader><bs> :Ack! '\b<c-r><c-w>\b'<cr>
+nnoremap <Leader><bs> :Ack! '<c-r><c-w>'<cr>
 nnoremap <C-w>- :spl<cr>
 nnoremap <C-w><bar> :vsp<cr>
 
