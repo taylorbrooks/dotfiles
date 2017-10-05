@@ -4,6 +4,14 @@ source "$HOME/.aliases"
 export GEM_EDITOR="vim"
 export BUNDLER_EDITOR="vim"
 export PATH=/usr/local/bin:$PATH
+export STACK_HOME="/Users/taylorbrooks/Documents/source/stack"
+source $STACK_HOME/bin/stack.env
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="$PATH:/usr/local/Cellar/elixir/1.0.5"
+
 
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 function parse_git_branch {
@@ -40,11 +48,6 @@ PS4='+ '
 proml
 
 eval "$(rbenv init -)"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-export PATH="$PATH:/usr/local/Cellar/elixir/1.0.5"
 
 wmssh () {
   instance_name=$1
