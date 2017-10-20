@@ -1,28 +1,29 @@
 
 call plug#begin()
 
-Plug 'ervandew/supertab'
-Plug 'mileszs/ack.vim'
-Plug 'skwp/greplace.vim'
-Plug 'godlygeek/tabular'
-Plug 'tomtom/tcomment_vim'
-Plug 'thoughtbot/vim-rspec'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+Plug 'mileszs/ack.vim'                 " PRODUCTIVITY
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elixir-lang/vim-elixir'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'ervandew/supertab'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neomake/neomake'
+Plug 'godlygeek/tabular'
+Plug 'w0rp/ale'
+
+Plug 'tpope/vim-fugitive'              " GIT
+Plug 'tpope/vim-rhubarb'
+
+Plug 'tpope/vim-rails'                 " RUBY
+Plug 'vim-ruby/vim-ruby'
+Plug 'thoughtbot/vim-rspec'
+
+Plug 'elixir-lang/vim-elixir'          " ELIXIR
 Plug 'slashmili/alchemist.vim'
 
-call plug#end()
 
-autocmd! BufWritePost * Neomake
-autocmd! BufReadPost * Neomake
+call plug#end()
 
 syntax on
 colorscheme Tomorrow-Night-Eighties
@@ -36,6 +37,7 @@ set laststatus=2
 set list listchars=tab:»·,trail:·
 set number
 set nobackup
+set noshowmode
 set noswapfile
 set nowritebackup
 set softtabstop=2 shiftwidth=2 expandtab
