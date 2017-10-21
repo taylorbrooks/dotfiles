@@ -4,6 +4,7 @@ source "$HOME/.aliases"
 export GEM_EDITOR="vim"
 export BUNDLER_EDITOR="vim"
 export PATH=/usr/local/bin:$PATH
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export STACK_HOME="/Users/taylorbrooks/Documents/source/stack"
 source $STACK_HOME/bin/stack.env
 

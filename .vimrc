@@ -1,8 +1,10 @@
 
 call plug#begin()
 
-Plug 'mileszs/ack.vim'                 " PRODUCTIVITY
-Plug 'ctrlpvim/ctrlp.vim'
+" PRODUCTIVITY
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'ervandew/supertab'
@@ -73,6 +75,7 @@ map <Leader>nn :vs ~/Documents/Sync/notes<cr>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>s :call RunAllSpecs()<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
@@ -91,11 +94,25 @@ noremap   <Down>  <NOP>
 noremap   <Left>  <NOP>
 noremap   <Right> <NOP>
 
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-
 let g:ackprg = 'ag --vimgrep'
+
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+let g:fzf_layout = { 'down' : '~20%' }
+let g:fzf_colors =
+  \ { 'fg':    ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 iabbrev bpry      require 'pry'; binding.pry
 iabbrev brpry     require 'pry-remote'; binding.remote_pry
