@@ -2,7 +2,6 @@
 call plug#begin()
 
 " PRODUCTIVITY
-Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tomtom/tcomment_vim'
@@ -80,8 +79,8 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>j :%!cat % <bar> jq '.'<CR>
-nnoremap <Leader>a :Ack!
-nnoremap <Leader><bs> :Ack! '<c-r><c-w>'<cr>
+nnoremap <Leader>a :F
+nnoremap <Leader><bs> :F '<c-r><c-w>'<cr>
 nnoremap <C-w>- :spl<cr>
 nnoremap <C-w><bar> :vsp<cr>
 
@@ -93,8 +92,6 @@ noremap   <Up>    <NOP>
 noremap   <Down>  <NOP>
 noremap   <Left>  <NOP>
 noremap   <Right> <NOP>
-
-let g:ackprg = 'ag --vimgrep'
 
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
@@ -113,6 +110,13 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 iabbrev bpry      require 'pry'; binding.pry
 iabbrev brpry     require 'pry-remote'; binding.remote_pry
