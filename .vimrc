@@ -12,14 +12,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'w0rp/ale'
-
 Plug 'tpope/vim-fugitive'              " GIT
-Plug 'tpope/vim-rhubarb'
-
 Plug 'tpope/vim-rails'                 " RUBY
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
-
 Plug 'elixir-lang/vim-elixir'          " ELIXIR
 Plug 'slashmili/alchemist.vim'
 
