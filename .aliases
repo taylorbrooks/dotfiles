@@ -14,7 +14,7 @@ alias gd='git diff --color-words'
 alias gdc='git diff --cached'
 alias gdh='git diff HEAD'
 alias gl='git pull'
-alias glod='git log --graph --pretty="%Cgreen%h%Creset%Cblue%d%Creset %Cred%an%Creset: %s"'
+alias glod='git log --graph --tags --pretty="%Cgreen%h%Creset%Cblue%d%Creset %Cred%an%Creset: %s"'
 alias gp='git push'
 alias gpr='git pull --rebase'
 alias gst='git status'
@@ -31,27 +31,36 @@ alias tma='tmux attach -t'
 alias mux='tmuxinator'
 
 # DIR
-alias today="cd ~/Documents/Sync/notes && vim daily.md"
+alias today="cd ~/Documents/Sync/notes && vim -O daily.md goals.md"
 alias dot="cd ~/Documents/source/dotfiles"
 alias src="cd ~/Documents/source"
 alias sd="cd ~/Documents/source/simpledonation"
+alias sdp="cd ~/Documents/source/simpledonation-prospects"
 alias sp="cd ~/Documents/source/prospex"
 alias de="cd ~/Documents/source/drip-emails"
 alias dex="cd ~/Documents/source/drip_emails"
-alias todo="src && cd notes/ && todo.md"
+alias todo="cd ~/Documents/Sync/notes/ && todo.md"
 alias blog="cd ~/Documents/source/taylorbrooksorg"
+alias jnl="vim +'normal Go' +'r!date' ~/Documents/Sync/notes/journal.md"
+
+alias demo="cd ~/Documents/Sync/biz/Simple\ Donation/Rock/rock_demo && open demo.pdf && vim demo.txt"
 
 # HEROKU
 alias hc="heroku run console"
 alias hl="heroku logs -t"
+alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
+alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
 
 # MAKE IT SO
 alias mis="gps origin master && gps heroku master"
 
 # MISC SHORTCUTS
 alias be="bundle exec"
+alias tailtail="tail -f ~/Library/Logs/puma-dev.log"
 alias pca="RAILS_ENV=production be rake assets:precompile"
 alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
+alias nom='npm cache verify && rm -rf node_modules && mkdir node_modules && touch node_modules/.metadata_never_index && touch node_modules/.nosync && npm install'
+alias bom='bower cache clean && rm -rf bower_components && mkdir bower_components && touch bower_components/.metadata_never_index && touch node_modules/.nosync && bower install'
 
 # SHELL
 alias ll="ls -l"

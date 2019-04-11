@@ -4,16 +4,15 @@ source "$HOME/.aliases"
 export GEM_EDITOR="vim"
 export BUNDLER_EDITOR="vim"
 export PATH=/usr/local/bin:$PATH
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!{.git,node_modules,vendor}/*"'
 bind -x '"\C-p": vim $(fzf);'
-export STACK_HOME="/Users/taylorbrooks/Documents/source/stack"
-source $STACK_HOME/bin/stack.env
+export STACK_HOME="$(stack -H)"
+source "$STACK_HOME/bin/stack.completions"
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH:/usr/local/Cellar/elixir/1.0.5"
-
 
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 function parse_git_branch {
@@ -51,9 +50,7 @@ proml
 
 eval "$(rbenv init -)"
 
-wmssh () {
-  instance_name=$1
-  bastion="wellmatch-ssh@54.67.33.128"
-  ip=`aws ec2 describe-instances --filters "Name=tag:Name,Values=$instance_name" "Name=instance-state-name,Values=running" --query "Reservations[0].Instances[0].NetworkInterfaces[0].PrivateIpAddresses[0].PrivateIpAddress" --output text --profile wellmatch`
-  ssh -A -t $bastion ssh -A -t ubuntu@$ip
-}
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="$PATH:/opt/yarn-[version]/bin"
+export SOKE_LOGIN_METHOD="onelogin_api"
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"

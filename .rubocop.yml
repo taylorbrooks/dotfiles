@@ -1,0 +1,12 @@
+require: rubocop-thread_safety
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Style/Documentation:
+  Enabled: false
