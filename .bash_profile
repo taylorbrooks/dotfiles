@@ -7,6 +7,8 @@ export PATH=/usr/local/bin:$PATH
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!{.git,node_modules,vendor}/*"'
 bind -x '"\C-p": vim $(fzf);'
 
+export SOKE_LOGIN_METHOD="onelogin_api"
+
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
