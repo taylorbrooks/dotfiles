@@ -34,17 +34,14 @@ alias mux='tmuxinator'
 alias today="cd ~/Documents/Sync/notes && vim -O daily.md goals.md"
 alias dot="cd ~/Code/dotfiles"
 alias src="cd ~/Code"
-alias aet="cd ~/Code/aetna"
 alias sd="cd ~/Code/simple-donation/simpledonation"
 alias sdp="cd ~/Code/simple-donation/simpledonation-prospects"
 alias sp="cd ~/Code/prospex"
-alias de="cd ~/Code/drip-emails"
-alias dex="cd ~/Code/drip_emails"
 alias todo="cd ~/Documents/Sync/notes/ && vim todo.md"
 alias blog="cd ~/Code/taylorbrooksorg"
 alias jnl="vim +'normal Go' +'r!date' ~/Documents/Sync/notes/journal.md"
 alias drive="cd /Volumes/GoogleDrive/My\ Drive"
-alias demo="cd ~/Simple\ Donation\ Dropbox/Simple\ Donation/Rock/rock_demo && open demo.pdf && vim demo.txt"
+alias demo="cd /Volumes/GoogleDrive/My\ Drive/Simple\ Donation\ Shared/Rock/rock_demo && open demo.pdf && vim demo.txt"
 
 # HEROKU
 alias hc="heroku run console"
