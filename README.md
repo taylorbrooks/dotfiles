@@ -17,3 +17,4 @@ $ brew install ripgrep
 $ brew tap heroku/brew && brew install heroku
 $ yarn global add git-open
 ```
+
