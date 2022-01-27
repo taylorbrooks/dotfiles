@@ -14,7 +14,7 @@ $ brew install node
 $ brew install nvm
 $ brew install yarn
 $ brew install ripgrep
-$ brew tap heroku/brew && brew install heroku
 $ yarn global add git-open
+$ yarn global add heroku
 ```
 
