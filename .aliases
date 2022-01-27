@@ -49,7 +49,7 @@ alias demo="cd ~/Simple\ Donation\ Dropbox/Simple\ Donation/Rock/rock_demo && op
 # HEROKU
 alias hc="heroku run console"
 alias hl="heroku logs -t"
-alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
+alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation --exclude-table-data=versions || true && be rake super_admin:set_local_pass"
 alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
 
 # MAKE IT SO
@@ -58,7 +58,7 @@ alias mis="gps origin master && gps heroku master"
 # MISC SHORTCUTS
 alias be="bundle exec"
 alias tailtail="tail -f ~/Library/Logs/puma-dev.log"
-alias pca="RAILS_ENV=production be rake assets:precompile"
+alias pca="NODE_ENV=production RAILS_ENV=production be rake assets:precompile"
 alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
 alias nom='npm cache verify && rm -rf node_modules && mkdir node_modules && touch node_modules/.metadata_never_index && touch node_modules/.nosync && npm install'
 alias bom='bower cache clean && rm -rf bower_components && mkdir bower_components && touch bower_components/.metadata_never_index && touch node_modules/.nosync && bower install'
