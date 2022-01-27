@@ -3,7 +3,6 @@ require 'rake'
 desc "install dotfiles into user's home directory"
 task :install do
   replace_all = false
-  require 'pry'; binding.pry
   Dir.entries(".").each do |file|
     next if [".", "..", "Rakefile", ".git"].include? file
 
