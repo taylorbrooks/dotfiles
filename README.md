@@ -9,12 +9,14 @@ $ rake install
 
 # install brew packages
 ```shell
+$ brew install tmux
 $ brew install rbenv
+$ brew install elixir
 $ brew install node
 $ brew install nvm
 $ brew install yarn
 $ brew install ripgrep
+$ brew install fzf
 $ yarn global add git-open
 $ yarn global add heroku
 ```
-

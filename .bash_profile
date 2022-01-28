@@ -48,7 +48,7 @@ PS4='+ '
 }
 proml
 
-eval "$(rbenv init -)"
+eval "$(rbenv init - bash)"
 
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="$PATH:/opt/yarn-[version]/bin"
