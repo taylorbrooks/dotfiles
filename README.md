@@ -10,6 +10,7 @@ $ rake install
 # install brew packages
 ```shell
 $ brew install tmux
+$ brew install tig
 $ brew install rbenv
 $ brew install elixir
 $ brew install node
