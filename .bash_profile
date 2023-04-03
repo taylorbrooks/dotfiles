@@ -7,8 +7,6 @@ export PATH=/usr/local/bin:$PATH
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!{.git,node_modules,vendor}/*"'
 bind -x '"\C-p": vim $(fzf);'
 
-export SOKE_LOGIN_METHOD="onelogin_api"
-
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
@@ -52,7 +50,6 @@ eval "$(rbenv init - bash)"
 
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="$PATH:/opt/yarn-[version]/bin"
-export SOKE_LOGIN_METHOD="onelogin_api"
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # pyenv
@@ -62,6 +59,6 @@ fi
 export PYENV_VERSION=2.7.14
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 eval "$(/opt/homebrew/bin/brew shellenv)"

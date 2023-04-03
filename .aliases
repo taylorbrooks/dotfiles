@@ -11,8 +11,6 @@ alias gb='git branch'
 alias gc='git commit -v'
 alias gca='git commit -a -v'
 alias gd='git diff --color-words'
-alias gdc='git diff --cached'
-alias gdh='git diff HEAD'
 alias gl='git pull'
 alias glod='git log --graph --pretty="%cd %Cgreen%h%Creset%Cblue%d%Creset %Cred%an%Creset: %s" --date=short'
 alias gp='git push'
@@ -28,7 +26,6 @@ alias gcp='git cherry-pick'
 alias tml='tmux ls'
 alias tmn='tmux new -s'
 alias tma='tmux attach -t'
-alias mux='tmuxinator'
 
 # DIR
 alias today="cd ~/Documents/Sync/notes && vim -O daily.md goals.md"
@@ -46,7 +43,7 @@ alias demo="cd /Volumes/GoogleDrive/My\ Drive/Simple\ Donation\ Shared/Rock/rock
 # HEROKU
 alias hc="heroku run console"
 alias hl="heroku logs -t"
-alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation --exclude-table-data=versions || true && be rake super_admin:set_local_pass"
+alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
 alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
 
 # MAKE IT SO
@@ -70,4 +67,4 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias psg='ps aux | grep'
 alias h='history'
-alias e='vim'
+alias e='nvim'

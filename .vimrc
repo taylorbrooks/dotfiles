@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 " THEME
 Plug 'morhetz/gruvbox'
@@ -16,6 +16,8 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'chrisbra/csv.vim'
+Plug 'github/copilot.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'mattn/emmet-vim'                 " HTML
 Plug 'pangloss/vim-javascript'         " JS
@@ -49,6 +51,7 @@ set nobackup
 set noshowmode
 set noswapfile
 set nowritebackup
+set re=2
 set softtabstop=2 shiftwidth=2 expandtab
 set splitright
 set splitbelow
