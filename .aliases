@@ -1,7 +1,5 @@
 # GIT
 alias gco="git checkout"
-alias gpl="git pull --rebase"
-alias gps="git push"
 alias gcm="git commit -a -m"
 alias gst="git status"
 alias gap='git add -p'
@@ -34,9 +32,7 @@ alias src="cd ~/Code"
 alias sd="cd ~/Code/simple-donation/simpledonation"
 alias sdp="cd ~/Code/simple-donation/simpledonation-prospects"
 alias rp="cd ~/Code/simple-donation/rock-plugin"
-alias sp="cd ~/Code/prospex"
 alias todo="cd ~/Documents/Sync/notes/ && vim todo.md"
-alias blog="cd ~/Code/taylorbrooksorg"
 alias jnl="vim +'normal Go' +'r!date' ~/Documents/Sync/notes/journal.md"
 alias drive="cd /Volumes/GoogleDrive/My\ Drive"
 alias demo="cd /Volumes/GoogleDrive/My\ Drive/Simple\ Donation\ Shared/Rock/rock_demo && open demo.pdf && vim demo.txt"
@@ -45,6 +41,7 @@ alias demo="cd /Volumes/GoogleDrive/My\ Drive/Simple\ Donation\ Shared/Rock/rock
 alias hc="heroku run console"
 alias hl="heroku logs -t"
 alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
+alias pull_db="heroku pg:backups:download -a sdonation"
 alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
 
 # MAKE IT SO
@@ -52,20 +49,12 @@ alias mis="gps origin master && gps heroku master"
 
 # MISC SHORTCUTS
 alias be="bundle exec"
-alias tailtail="tail -f ~/Library/Logs/puma-dev.log"
 alias pca="NODE_ENV=production RAILS_ENV=production be rake assets:precompile"
 alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
 alias nom='npm cache verify && rm -rf node_modules && mkdir node_modules && touch node_modules/.metadata_never_index && touch node_modules/.nosync && npm install'
-alias bom='bower cache clean && rm -rf bower_components && mkdir bower_components && touch bower_components/.metadata_never_index && touch node_modules/.nosync && bower install'
 
 # SHELL
 alias ll="ls -l"
-alias la="ls -a"
-alias lll="la -l"
-alias md='mkdir -p'
-alias rd='rmdir'
-alias cd..='cd ..'
 alias ..='cd ..'
-alias psg='ps aux | grep'
 alias h='history'
 alias e='nvim'
