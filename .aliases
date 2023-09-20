@@ -45,7 +45,7 @@ alias pull_db="heroku pg:backups:download -a sdonation"
 alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
 
 # MAKE IT SO
-alias mis="gps origin master && gps heroku master"
+alias mis="gp origin master && gp heroku master"
 
 # MISC SHORTCUTS
 alias be="bundle exec"
