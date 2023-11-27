@@ -26,16 +26,17 @@ alias tmn='tmux new -s'
 alias tma='tmux attach -t'
 
 # DIR
-alias today="cd ~/Documents/Sync/notes && e -O daily.md goals.md"
-alias dot="cd ~/Code/dotfiles"
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias today="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && e -O daily.md goals.md"
+alias todo="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && vim todo.md"
 alias src="cd ~/Code"
-alias sd="cd ~/Code/simple-donation/simpledonation"
-alias sdp="cd ~/Code/simple-donation/simpledonation-prospects"
-alias rp="cd ~/Code/simple-donation/rock-plugin"
-alias todo="cd ~/Documents/Sync/notes/ && vim todo.md"
+alias dot="src && cd dotfiles"
+alias sd="src && cd simple-donation/simpledonation"
+alias sdp="src && cd simple-donation/simpledonation-prospects"
+alias rp="src && cd simple-donation/rock-plugin"
+alias rock="src && cd Rock"
 alias jnl="vim +'normal Go' +'r!date' ~/Documents/Sync/notes/journal.md"
-alias drive="cd /Volumes/GoogleDrive/My\ Drive"
-alias demo="cd /Volumes/GoogleDrive/My\ Drive/Simple\ Donation\ Shared/Rock/rock_demo && open demo.pdf && vim demo.txt"
+alias drive="cd ~/Library/CloudStorage/GoogleDrive-taylor@simpledonation.com/My\ Drive/Simple\ Donation\ Shared && open ."
 
 # HEROKU
 alias hc="heroku run console"
