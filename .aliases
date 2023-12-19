@@ -27,7 +27,8 @@ alias tma='tmux attach -t'
 
 # DIR
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias today="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && e -O daily.md goals.md"
+alias index="icloud && cd 00\ -\ 09\ Meta/ && e 00\ Index.md"
+alias today="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && e -O daily.md reminders.md"
 alias todo="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && vim todo.md"
 alias src="cd ~/Code"
 alias dot="src && cd dotfiles"
@@ -42,8 +43,31 @@ alias drive="cd ~/Library/CloudStorage/GoogleDrive-taylor@simpledonation.com/My\
 alias hc="heroku run console"
 alias hl="heroku logs -t"
 alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
-alias pull_db="heroku pg:backups:download -a sdonation"
-alias load_db="pg_restore --verbose --clean --no-acl --no-owner -h localhost -U taylorbrooks -d simpledonation_development latest.dump"
+
+get_backup() {
+  if [ "$#" -eq 1 ]; then
+    heroku pg:backups:capture -a "$1"
+  else
+    echo "No argument provided. Pass a Heroku application identifier as the first argument."
+  fi
+}
+
+pull_db() {
+  if [ "$#" -eq 1 ]; then
+    heroku pg:backups:download -a "$1"
+  else
+    echo "No argument provided. Pass a Heroku application identifier as the first argument."
+  fi
+}
+
+load_db() {
+  if [ "$#" -eq 1 ]; then
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -d "$1" latest.dump
+  else
+    echo "No argument provided. Pass the local db as the first argument."
+  fi
+}
+
 
 # MAKE IT SO
 alias mis="gp origin master && gp heroku master"
@@ -53,6 +77,7 @@ alias be="bundle exec"
 alias pca="NODE_ENV=production RAILS_ENV=production be rake assets:precompile"
 alias start_redis="cd /usr/local/Cellar/redis/2.2.12/bin && ./redis-server"
 alias nom='npm cache verify && rm -rf node_modules && mkdir node_modules && touch node_modules/.metadata_never_index && touch node_modules/.nosync && npm install'
+
 
 # SHELL
 alias ll="ls -l"
