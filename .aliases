@@ -27,9 +27,9 @@ alias tma='tmux attach -t'
 
 # DIR
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias ndir="icloud &&  cd 50\ -\ 59\ Notes"
 alias index="icloud && cd 00\ -\ 09\ Meta/ && e 00\ Index.md"
-alias today="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && e -O daily.md reminders.md"
-alias todo="icloud && cd 50\ -\ 59\ Notes/51\ Personal/ && vim todo.md"
+alias today="ndir && e -O 51\ Personal/daily.md 51\ Personal/reminders.md"
 alias src="cd ~/Code"
 alias dot="src && cd dotfiles"
 alias sd="src && cd simple-donation/simpledonation"
