@@ -36,7 +36,7 @@ alias sd="src && cd simple-donation/simpledonation"
 alias sdp="src && cd simple-donation/simpledonation-prospects"
 alias rp="src && cd simple-donation/rock-plugin"
 alias rock="src && cd Rock"
-alias jnl="vim +'normal Go' +'r!date' ~/Documents/Sync/notes/journal.md"
+alias jnl="ndir && cd 51\ Personal && vim +'normal Go' +'r!date' journal.md"
 alias drive="cd ~/Library/CloudStorage/GoogleDrive-taylor@simpledonation.com/My\ Drive/Simple\ Donation\ Shared && open ."
 
 # HEROKU
