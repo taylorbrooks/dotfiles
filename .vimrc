@@ -70,7 +70,8 @@ augroup vimrc
   autocmd GuiEnter * set columns=120 lines=70 number
 augroup END
 autocmd BufWritePre * %s/\s\+$//e
-au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
+autocmd BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
+autocmd BufRead,BufNewFile *.obs setfiletype html
 
 let mapleader = ","
 
