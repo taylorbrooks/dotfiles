@@ -42,7 +42,6 @@ alias drive="cd ~/Library/CloudStorage/GoogleDrive-taylor@simpledonation.com/My\
 # HEROKU
 alias hc="heroku run console"
 alias hl="heroku logs -t"
-alias pull_sd_db="dropdb simpledonation_development && heroku pg:pull DATABASE_URL simpledonation_development -a sdonation || true && be rake super_admin:set_local_pass"
 
 get_backup() {
   if [ "$#" -eq 1 ]; then
