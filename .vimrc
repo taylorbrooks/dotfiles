@@ -38,6 +38,9 @@ syntax on
 set background=dark
 colorscheme gruvbox
 
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
+
 set cursorline
 set cursorcolumn
 set guifont=Monaco:h16
@@ -137,7 +140,6 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 
 let g:ale_fixers = { 'javascript' : ['eslint']}
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-let g:gruvbox_contrast_light = "hard"
 let g:user_emmet_leader_key=','
 
 iabbrev bpry      require 'pry'; binding.pry

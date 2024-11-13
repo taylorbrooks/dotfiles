@@ -1,0 +1,41 @@
+{
+  "editor.definitionLinkOpensInPeek": true,
+  "window.zoomLevel": 2,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.leader": ",",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<esc>"
+      ]
+    }
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "extensions.ignoreRecommendations": true,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.editor.showTabs": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "vim.vimrc.enable": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["-"],
+      "commands": ["vsnetrw.open"],
+      "when": "editorLangId != vsnetrw"
+    }
+  ]
+}
