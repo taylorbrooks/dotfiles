@@ -32,11 +32,13 @@ alias index="icloud && cd 00\ -\ 09\ Meta/ && e 00\ Index.md"
 alias today="ndir && e -O 51\ Personal/daily.md 51\ Personal/reminders.md"
 alias src="cd ~/Code"
 alias dot="src && cd dotfiles"
+alias sdpp="src && cd simple-donation/powerpack"
 alias sd="src && cd simple-donation/simpledonation"
 alias sdp="src && cd simple-donation/simpledonation-prospects"
 alias rp="src && cd simple-donation/rock-plugin"
 alias rock="src && cd Rock"
 alias jnl="ndir && cd 51\ Personal && vim +'normal Go' +'r!date' journal.md"
+alias cjnl="ndir && cd 51\ Personal && (echo \"\" && echo -n \"### \" && date && echo \"\") | cat - journal.md > journal.tmp && mv journal.tmp journal.md && e journal.md"
 alias drive="cd ~/Library/CloudStorage/GoogleDrive-taylor@simpledonation.com/My\ Drive/Simple\ Donation\ Shared && open ."
 
 # HEROKU
@@ -44,26 +46,55 @@ alias hc="heroku run console"
 alias hl="heroku logs -t"
 
 get_backup() {
+  if [ -f ".heroku" ]; then
+    app_name=$(grep "app_name" .heroku | cut -d":" -f2 | sed -e "s/^[[:space:]]*'\''//g" -e "s/'\''[[:space:]]*$//g" | tr -d '[:space:]')
+    if [ -n "$app_name" ]; then
+      heroku pg:backups:capture -a "$app_name"
+      return
+    fi
+  fi
+
   if [ "$#" -eq 1 ]; then
     heroku pg:backups:capture -a "$1"
   else
-    echo "No argument provided. Pass a Heroku application identifier as the first argument."
+    echo "No argument provided and no app_name found in .heroku file. Pass a Heroku application identifier as the first argument."
   fi
 }
 
 pull_db() {
+  if [ -f ".heroku" ]; then
+    app_name=$(grep "app_name" .heroku | cut -d":" -f2 | sed -e "s/^[[:space:]]*'\''//g" -e "s/'\''[[:space:]]*$//g" | tr -d '[:space:]')
+    if [ -n "$app_name" ]; then
+      heroku pg:backups:download -a "$app_name"
+      return
+    fi
+  fi
+
   if [ "$#" -eq 1 ]; then
     heroku pg:backups:download -a "$1"
   else
-    echo "No argument provided. Pass a Heroku application identifier as the first argument."
+    echo "No argument provided and no app_name found in .heroku file. Pass a Heroku application identifier as the first argument."
   fi
 }
 
 load_db() {
+  # Move latest.dump.1 to latest.dump if it exists
+  if [ -f "latest.dump.1" ]; then
+    mv latest.dump.1 latest.dump
+  fi
+
+  if [ -f ".heroku" ]; then
+    local_db=$(grep "local_database_name" .heroku | cut -d":" -f2 | sed -e "s/^[[:space:]]*'\''//g" -e "s/'\''[[:space:]]*$//g" | tr -d '[:space:]')
+    if [ -n "$local_db" ]; then
+      pg_restore --verbose --clean --no-acl --no-owner -h localhost -d "$local_db" latest.dump
+      return
+    fi
+  fi
+
   if [ "$#" -eq 1 ]; then
     pg_restore --verbose --clean --no-acl --no-owner -h localhost -d "$1" latest.dump
   else
-    echo "No argument provided. Pass the local db as the first argument."
+    echo "No argument provided and no local_database found in .heroku file. Pass the local db as the first argument."
   fi
 }
 
@@ -82,4 +113,4 @@ alias nom='npm cache verify && rm -rf node_modules && mkdir node_modules && touc
 alias ll="ls -l"
 alias ..='cd ..'
 alias h='history'
-alias e='nvim'
+alias e='cursor' # values: nvim, cursor, vim, nano, etc.
